@@ -1,5 +1,6 @@
 package org.storbrit.britlib;
 
+import net.devtech.arrp.api.RRPCallback;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.minecraft.util.Identifier;
 import org.quiltmc.loader.api.ModContainer;
@@ -14,6 +15,7 @@ public class Britlib implements ModInitializer {
 
 	@Override
 	public void onInitialize(ModContainer mod) {
-		LOGGER.info("Hello Quilt world from {}!", mod.metadata().name());
+		LOGGER.info("Registering Britlib resource pack");
+		RRPCallback.BEFORE_VANILLA.register(listener -> listener.add(BRITLIB_PACK));
 	}
 }
