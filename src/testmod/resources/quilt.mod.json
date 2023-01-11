@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "org.storbrit",
+    "id": "britlib_testmod",
+    "version": "${version}",
+    "metadata": {
+      "name": "Britlib Testmod",
+      "description": "Mod that tests Britlib's features",
+      "contributors": {
+        "storbrit": "Owner"
+      },
+      "contact": {
+        "homepage": "https://example.com/",
+        "issues": "https://github.com/QuiltMC/quilt-template-mod/issues",
+        "sources": "https://github.com/QuiltMC/quilt-template-mod"
+      },
+      "icon": "assets/britlib_testmod/icon.png"
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "init": "org.storbrit.testmod.Testmod"
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "versions": ">=0.17.6-"
+      },
+      {
+        "id": "quilted_fabric_api",
+        "versions": ">=5.0.0-"
+      },
+      {
+        "id": "minecraft",
+        "versions": ">=1.19.3"
+      }
+    ]
+  }
+}
