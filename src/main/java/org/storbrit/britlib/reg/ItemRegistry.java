@@ -9,11 +9,13 @@ import net.minecraft.util.Identifier;
 import org.storbrit.britlib.Britlib;
 import org.storbrit.britlib.item.RuntimeModelItem;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ItemRegistry {
-    private static final Map<Item, Integer> OFFSETS = new HashMap<>();
+    private static final Map<Item, List<Item>> TARGETS = new HashMap<>();
 
     public static <I extends Item> I add(Identifier id, I item) {
         I result = Registry.register(Registries.ITEM, id, item);
@@ -35,13 +37,16 @@ public class ItemRegistry {
     public static <I extends Item> I add(Identifier id, I item, ItemGroup group, Item target) {
         I result = add(id, item);
 
-        if (!OFFSETS.containsKey(target)) {
-            OFFSETS.put(target, 0);
+        if (!TARGETS.containsKey(target)) {
+            TARGETS.put(target, new ArrayList<>(List.of(target)));
         }
-        ItemGroupEvents.modifyEntriesEvent(group).register(content -> content.addAfter(content.getDisplayStacks().get(
-            content.getDisplayStacks().indexOf(target) + OFFSETS.get(target)), item));
 
-        OFFSETS.put(target, OFFSETS.get(target) + 1);
+        List<Item> newList = TARGETS.get(target);
+        newList.add(result);
+        TARGETS.put(target, newList);
+
+        ItemGroupEvents.modifyEntriesEvent(group).register(content -> content.addAfter(
+            TARGETS.get(target).get(TARGETS.get(target).indexOf(result) - 1), result));
 
         return result;
     }
