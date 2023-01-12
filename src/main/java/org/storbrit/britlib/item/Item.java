@@ -10,8 +10,9 @@ public class Item extends net.minecraft.item.Item implements RuntimeModelItem {
 
     @Override
     public JModel getModel() {
-        return JModel.model("minecraft:item/generated").textures(
-            JModel.textures()
-                .layer0(Registries.ITEM.getId(this).withPrefix("item/").toString()));
+        return JModel.model("minecraft:item/generated")
+            .textures(
+                JModel.textures()
+                    .layer0(Registries.ITEM.getId(this).withPrefix("item/").toString()));
     }
 }
