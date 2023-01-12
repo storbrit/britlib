@@ -40,5 +40,12 @@
 			}
 		]
 	},
-	"mixin": "britlib.mixins.json"
+	"mixin": "britlib.mixins.json",
+	"custom": {
+		"modmenu": {
+			"badges": [
+				"library"
+			]
+		}
+	}
 }

@@ -35,12 +35,5 @@
         "versions": ">=1.19.3"
       }
     ]
-  },
-  "custom": {
-    "modmenu": {
-      "badges": [
-        "library"
-      ]
-    }
   }
 }
