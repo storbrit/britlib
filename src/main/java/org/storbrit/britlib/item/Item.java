@@ -3,6 +3,9 @@ package org.storbrit.britlib.item;
 import net.devtech.arrp.json.models.JModel;
 import net.minecraft.registry.Registries;
 
+/**
+ * Extension of {@link net.minecraft.item.Item} that implements {@link RuntimeModelItem}.
+ */
 public class Item extends net.minecraft.item.Item implements RuntimeModelItem {
     public Item(Settings settings) {
         super(settings);

@@ -8,6 +8,9 @@ import net.minecraft.util.Identifier;
 
 import java.util.*;
 
+/**
+ * Extension of {@link net.minecraft.block.Block} that implements {@link RuntimeBlockstateModelBlock}.
+ */
 public class Block extends net.minecraft.block.Block implements RuntimeBlockstateModelBlock {
     public Block(AbstractBlock.Settings settings) {
         super(settings);

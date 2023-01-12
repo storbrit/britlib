@@ -14,9 +14,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Wrapper functions for creating blocks, dynamically generating their models, and inserting them into item groups.
+ */
 public class ItemRegistry {
     private static final Map<Item, List<Item>> TARGETS = new HashMap<>();
 
+    /**
+     * Adds an item to the registry.
+     *
+     * @param id   the identifier of the item
+     * @param item the item to register
+     * @param <I>  any item that extends {@link Item}
+     * @return the registered item
+     */
     public static <I extends Item> I add(Identifier id, I item) {
         I result = Registry.register(Registries.ITEM, id, item);
 
@@ -27,12 +38,32 @@ public class ItemRegistry {
         return result;
     }
 
+    /**
+     * Adds an item to the registry and inserts it into an item group.
+     *
+     * @param id    the identifier of the item
+     * @param item  the item to register
+     * @param group the item group to add the item to
+     * @param <I>   any item that extends {@link Item}
+     * @return the registered item
+     */
     public static <I extends Item> I add(Identifier id, I item, ItemGroup group) {
         I result = add(id, item);
         ItemGroupEvents.modifyEntriesEvent(group).register(content -> content.addItem(item));
         return result;
     }
 
+    /**
+     * Adds an item to the registry and inserts it into an item group after a target.
+     *
+     * @param id     the identifier of the item
+     * @param item   the item to register
+     * @param group  the item group to add the item to
+     * @param target the target item to insert the registered item after
+     * @param <I>    any item that extends {@link Item}
+     * @return the registered item
+     */
+    // TODO get rid of the group parameter and autodetect it from the target
     @SuppressWarnings("UnstableApiUsage")
     public static <I extends Item> I add(Identifier id, I item, ItemGroup group, Item target) {
         I result = add(id, item);
