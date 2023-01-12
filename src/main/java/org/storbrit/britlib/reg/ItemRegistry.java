@@ -49,7 +49,7 @@ public class ItemRegistry {
      */
     public static <I extends Item> I add(Identifier id, I item, ItemGroup group) {
         I result = add(id, item);
-        ItemGroupEvents.modifyEntriesEvent(group).register(content -> content.addItem(item));
+        ItemGroupEvents.modifyEntriesEvent(group).register(content -> content.addItem(result));
         return result;
     }
 
