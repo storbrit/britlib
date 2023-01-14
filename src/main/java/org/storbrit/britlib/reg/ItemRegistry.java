@@ -6,6 +6,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import org.apiguardian.api.API;
 import org.storbrit.britlib.Britlib;
 import org.storbrit.britlib.item.RuntimeModelItem;
 
@@ -17,7 +18,7 @@ import java.util.Map;
 /**
  * Wrapper functions for creating blocks, dynamically generating their models, and inserting them into item groups.
  */
-public class ItemRegistry {
+public final class ItemRegistry {
     private static final Map<Item, List<Item>> TARGETS = new HashMap<>();
 
     /**
@@ -28,6 +29,7 @@ public class ItemRegistry {
      * @param <I>  any item that extends {@link Item}
      * @return the registered item
      */
+    @API(status = API.Status.EXPERIMENTAL)
     public static <I extends Item> I add(Identifier id, I item) {
         I result = Registry.register(Registries.ITEM, id, item);
 
@@ -47,6 +49,7 @@ public class ItemRegistry {
      * @param <I>   any item that extends {@link Item}
      * @return the registered item
      */
+    @API(status = API.Status.EXPERIMENTAL)
     public static <I extends Item> I add(Identifier id, I item, ItemGroup group) {
         I result = add(id, item);
         ItemGroupEvents.modifyEntriesEvent(group).register(content -> content.addItem(result));
@@ -64,6 +67,7 @@ public class ItemRegistry {
      * @return the registered item
      */
     // TODO get rid of the group parameter and autodetect it from the target
+    @API(status = API.Status.EXPERIMENTAL)
     @SuppressWarnings("UnstableApiUsage")
     public static <I extends Item> I add(Identifier id, I item, ItemGroup group, Item target) {
         I result = add(id, item);

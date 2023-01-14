@@ -8,6 +8,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import org.apiguardian.api.API;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 import org.storbrit.britlib.Britlib;
 import org.storbrit.britlib.block.RuntimeBlockstateBlock;
@@ -19,7 +20,7 @@ import java.util.Map;
  * Wrapper functions for creating blocks, dynamically generating their block states and models, and creating block
  * items with the {@link ItemRegistry}.
  */
-public class BlockRegistry {
+public final class BlockRegistry {
     private static void makeBlockItemModel(Identifier id, RuntimeBlockstateModelBlock block) {
         Britlib.BRITLIB_PACK.addModel(JModel.model(block.getModels().firstKey()), id.withPrefix("item/"));
     }
@@ -33,6 +34,7 @@ public class BlockRegistry {
      * @param <B>           any block that extends {@link Block}
      * @return the registered block
      */
+    @API(status = API.Status.EXPERIMENTAL)
     public static <B extends Block> B add(Identifier id, B block, boolean makeBlockItem) {
         B result = Registry.register(Registries.BLOCK, id, block);
 
@@ -66,6 +68,7 @@ public class BlockRegistry {
      * @param <B>   any block that extends {@link Block}
      * @return the registered block
      */
+    @API(status = API.Status.EXPERIMENTAL)
     public static <B extends Block> B add(Identifier id, B block, ItemGroup group) {
         B result = add(id, block, false);
         ItemRegistry.add(id, new BlockItem(result, new QuiltItemSettings()), group);
@@ -85,6 +88,7 @@ public class BlockRegistry {
      * @param <B>    any block that extends {@link Block}
      * @return the registered block
      */
+    @API(status = API.Status.EXPERIMENTAL)
     public static <B extends Block> B add(Identifier id, B block, ItemGroup group, Item target) {
         B result = add(id, block, false);
         ItemRegistry.add(id, new BlockItem(result, new QuiltItemSettings()), group, target);
