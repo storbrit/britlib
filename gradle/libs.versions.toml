@@ -1,5 +1,4 @@
 [versions]
-# The latest versions are available at https://lambdaurora.dev/tools/import_quilt.html
 minecraft = "1.19.3"
 quilt_mappings = "1.19.3+build.12"
 quilt_loader = "0.17.8"
@@ -16,7 +15,6 @@ quilted_fabric_api_deprecated = { module = "org.quiltmc.quilted-fabric-api:quilt
 
 api_guardian = { module = "org.apiguardian:apiguardian-api", version.ref = "api_guardian" }
 
-# If you have multiple similar dependencies, you can declare a dependency bundle and reference it on the build script with "libs.bundles.example".
 [bundles]
 quilted_fabric_api = ["quilted_fabric_api", "quilted_fabric_api_deprecated"]
 
