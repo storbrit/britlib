@@ -1,3 +1,5 @@
+This update does not add any actual changes to the mod.
+
 ### Bug fixes
 
-- Removed the useless dependency on ARRP in the mod json
+- Fixed (hopefully) an issue with github workflows where the release fails to publish
