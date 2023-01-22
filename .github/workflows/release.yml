@@ -37,11 +37,11 @@ jobs:
 
       - name: Get Platform Version
         id: platform_version
-        run: grep "minecraft" gradle/libs.versions.toml | head -m 1 | sed "s/\s//g" | tr -d \" >> $GITHUB_OUTPUT
+        run: grep "minecraft" gradle/libs.versions.toml | head -n 1 | sed "s/\s//g" | tr -d \" >> $GITHUB_OUTPUT
 
       - name: Get Composite Version
         id: composite_version
-        run: echo "composite_version=${{ steps.mod_version.outputs.mod_version }}+${{ steps.platform_version.outputs.platform_version }}" >> $GITHUB_OUTPUT
+        run: echo "composite_version=${{ steps.mod_version.outputs.version }}+${{ steps.platform_version.outputs.minecraft }}" >> $GITHUB_OUTPUT
 
       - name: Publish
         env:
