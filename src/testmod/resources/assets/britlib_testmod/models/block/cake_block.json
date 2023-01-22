@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "britlib_testmod:block/cake_block"
-  }
+	"parent": "minecraft:block/cube_all",
+	"textures": {
+		"all": "britlib_testmod:block/cake_block"
+	}
 }

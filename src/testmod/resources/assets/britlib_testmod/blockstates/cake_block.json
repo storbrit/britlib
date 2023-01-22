@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "britlib_testmod:block/cake_block"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "britlib_testmod:block/cake_block"
+		}
+	}
 }

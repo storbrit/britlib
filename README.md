@@ -25,4 +25,5 @@ whatever reason seeking to include my shitty code in a proprietary project.
 
 ## Credits
 
-- Workflows: [emilyploszaj/emi](https://github.com/emilyploszaj/emi/tree/1.19.3/.github/workflows) ([MIT License](.github/workflows/LICENSE))
+- Workflows: [emilyploszaj/emi](https://github.com/emilyploszaj/emi/tree/1.19.3/.github/workflows)
+  ([MIT License](.github/workflows/LICENSE))
