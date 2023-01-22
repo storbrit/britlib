@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "britlib_testmod:block/stonk_cake_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "britlib_testmod:block/stonk_cake"
+    },
+    "axis=z": {
+      "model": "britlib_testmod:block/stonk_cake_horizontal",
+      "x": 90
+    }
+  }
+}

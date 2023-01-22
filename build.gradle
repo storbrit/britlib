@@ -9,7 +9,6 @@ group = project.maven_group
 
 repositories {
 	mavenCentral()
-	maven { url = uri("https://storage.googleapis.com/devan-maven/") }
 }
 
 sourceSets {
@@ -53,8 +52,6 @@ dependencies {
 	// modImplementation libs.bundles.quilted.fabric.api // If you wish to use Fabric API's deprecated modules, you can replace the above line with this one
 
 	compileOnlyApi libs.api.guardian
-
-	modImplementation libs.arrp
 
 	testmodImplementation sourceSets.main.output
 	testmodAnnotationProcessor sourceSets.main.output

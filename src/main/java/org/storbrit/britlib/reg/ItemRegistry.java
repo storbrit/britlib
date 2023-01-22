@@ -7,8 +7,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import org.apiguardian.api.API;
-import org.storbrit.britlib.Britlib;
-import org.storbrit.britlib.item.RuntimeModelItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,15 +27,9 @@ public final class ItemRegistry {
      * @param <I>  any item that extends {@link Item}
      * @return the registered item
      */
-    @API(status = API.Status.EXPERIMENTAL)
+    @API(status = API.Status.STABLE)
     public static <I extends Item> I add(Identifier id, I item) {
-        I result = Registry.register(Registries.ITEM, id, item);
-
-        if (item instanceof RuntimeModelItem) {
-            Britlib.BRITLIB_PACK.addModel(((RuntimeModelItem) item).getModel(), id.withPrefix("item/"));
-        }
-
-        return result;
+        return Registry.register(Registries.ITEM, id, item);
     }
 
     /**
@@ -49,7 +41,7 @@ public final class ItemRegistry {
      * @param <I>   any item that extends {@link Item}
      * @return the registered item
      */
-    @API(status = API.Status.EXPERIMENTAL)
+    @API(status = API.Status.STABLE)
     public static <I extends Item> I add(Identifier id, I item, ItemGroup group) {
         I result = add(id, item);
         ItemGroupEvents.modifyEntriesEvent(group).register(content -> content.addItem(result));
@@ -66,8 +58,9 @@ public final class ItemRegistry {
      * @param <I>    any item that extends {@link Item}
      * @return the registered item
      */
-    // TODO get rid of the group parameter and autodetect it from the target
-    @API(status = API.Status.EXPERIMENTAL)
+    // Maybe get rid of the group parameter and autodetect it from the target, although I've tried doing that locally,
+    // and it doesn't seem to work
+    @API(status = API.Status.STABLE)
     @SuppressWarnings("UnstableApiUsage")
     public static <I extends Item> I add(Identifier id, I item, ItemGroup group, Item target) {
         I result = add(id, item);
