@@ -1,4 +1,5 @@
-This update does not add any actual changes to the mod.
+This update does not make any actual changes to the mod, but publishing it makes it easier for me to fix the bug listed
+below.
 
 ### Bug fixes
 
