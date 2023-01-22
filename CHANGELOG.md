@@ -1,5 +1,3 @@
-yay release 1.0 uwu
+### Bug fixes
 
-### Additions
-
-- Block and item registry wrappers that add and inject items to item groups
+- Removed the useless dependency on ARRP in the mod json
